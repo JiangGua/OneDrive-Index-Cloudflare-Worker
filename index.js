@@ -58,6 +58,8 @@ const config = {
     "proxyDownload": true,
 };
 
+/* CONFIG END */
+
 addEventListener('fetch', event => {
     event.respondWith(handleRequest(event.request))
 })
@@ -92,9 +94,6 @@ async function getAccessToken() {
         return _accessToken;
     } else throw `getAccessToken error ${ JSON.stringify(await resp.text())}`
 }
-
-
-
 
 /**
  * mimetype to Material Icon name
@@ -316,7 +315,7 @@ function renderFolderIndex(items, isIndex) {
     const nav = `<nav><a class="brand" href="/">CDN-MS-2 | Jonbgua</a></nav>`;
     const el = (tag, attrs, content) => `<${tag} ${attrs.join(" ")}>${content}</${tag}>`;
     const div = (className, content) => el("div", [`class=${className}`], content);
-    const item = (icon, filename, size) => el("a", [`href="${filename}"`, `class="item"`, size ? `size="${size}"` : ""], el("i", [`class="material-icons"`], icon) + filename)
+    const item = (icon, filename, size) => el("a", [`href="${encodeURI(filename)}"`, `class="item"`, size ? `size="${size}"` : ""], el("i", [`class="material-icons"`], icon) + filename + '')
 
     return renderHTML(nav + div("container", div("items", el("div", ['style="min-width:600px"'],
         (!isIndex ? item("folder", "..") : "") +
