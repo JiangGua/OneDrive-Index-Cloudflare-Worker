@@ -313,7 +313,7 @@ async function handleRequest(request) {
  * @param {*} isIndex don't show ".." on index page.
  */
 function renderFolderIndex(items, isIndex) {
-    const nav = `<nav><a class="brand">OneDrive Index</a></nav>`;
+    const nav = `<nav><a class="brand" href="/">CDN-MS-2 | Jonbgua</a></nav>`;
     const el = (tag, attrs, content) => `<${tag} ${attrs.join(" ")}>${content}</${tag}>`;
     const div = (className, content) => el("div", [`class=${className}`], content);
     const item = (icon, filename, size) => el("a", [`href="${filename}"`, `class="item"`, size ? `size="${size}"` : ""], el("i", [`class="material-icons"`], icon) + filename)
@@ -339,8 +339,8 @@ function renderHTML(body) {
       <meta charset="utf-8" />
       <meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <title>OneDrive Index</title>
-      <link href='https://fonts.loli.net/icon?family=Material+Icons' rel='stylesheet'>
+      <title>CDN-MS-2 | Jonbgua</title>
+      <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
       <link href='https://cdn.jsdelivr.net/gh/heymind/OneDrive-Index-Cloudflare-Worker/themes/material.css' rel='stylesheet'>
       <link href='https://cdn.jsdelivr.net/gh/jianggua/OneDrive-Index-Cloudflare-Worker/themes/styles.css' rel='stylesheet'>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/themes/prism-solarizedlight.css">
@@ -349,7 +349,7 @@ function renderHTML(body) {
     <body>
       ${body}
       <div style="flex-grow:1"></div>
-      <footer><p>Powered by <a href="https://github.com/heymind/OneDrive-Index-Cloudflare-Worker">OneDrive-Index-CF</a>, hosted on <a href="https://www.cloudflare.com/products/cloudflare-workers/">Cloudflare Workers</a>.</p></footer>
+      <footer><p>Server: Onedrive-SINGAPORE</p></footer>
       <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/prism.min.js" data-manual></script>
       <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
     </body>
