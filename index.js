@@ -317,7 +317,7 @@ function renderFolderIndex(items, isIndex) {
     const div = (className, content) => el("div", [`class=${className}`], content);
     const item = (icon, filename, size) => el("a", [`href="${encodeURI(filename)}"`, `class="item"`, size ? `size="${size}"` : ""], el("i", [`class="material-icons"`], icon) + filename + '')
 
-    return renderHTML(nav + div("container", div("items", el("div", ['style="min-width:600px"'],
+    return renderHTML(nav + div("container", div("items", el("div", ['class="filelist"'],
         (!isIndex ? item("folder", "..") : "") +
         items.map((i) => {
             if ("folder" in i) {
